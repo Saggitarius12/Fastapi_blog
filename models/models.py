@@ -1,6 +1,6 @@
 
 from database.config import Base
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey,Boolean
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -19,5 +19,6 @@ class User(Base):
     email = Column(String)
     password = Column(String)
     blogs = relationship("Blog", back_populates="creator")
+    is_admin = Column(Boolean,default=False)
 
 
